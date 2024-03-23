@@ -1,0 +1,15 @@
+<input type="text" [(ngModel)]="l" placeholder="Enter your task..."  >
+<button type="button" (click)="add(l) ; l='' ">Add</button>
+
+
+<div *ngIf="list">
+ 
+    <ul>
+        <li *ngFor="let work of list">
+          <span [ngStyle]="{'backgroundColor':work.workstatus==true ? 'green' : 'red'}" style="color:beige">{{work.work}}</span>
+          <button type="button" (click)="delete(work)"> X </button>
+          <button type="button" (click)="edit(work)"> Edit </button>
+          <button type="button" id="status" (click)="done(work)">Done</button>
+        </li>
+    </ul>
+</div>
